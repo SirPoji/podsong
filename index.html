@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PodSong - AI Generated Music Collection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .player-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .song-list {
+            list-style: none;
+        }
+
+        .song-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .song-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .song-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .song-info {
+            flex-grow: 1;
+            min-width: 0;
+        }
+
+        .song-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.25rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .song-subtitle {
+            font-size: 0.9rem;
+            color: #718096;
+        }
+
+        .audio-player {
+            width: 100%;
+            max-width: 300px;
+            height: 40px;
+            flex-shrink: 0;
+        }
+
+        audio::-webkit-media-controls-panel {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        audio::-webkit-media-controls-play-button,
+        audio::-webkit-media-controls-pause-button {
+            background-color: white;
+            border-radius: 50%;
+        }
+
+        audio::-webkit-media-controls-current-time-display,
+        audio::-webkit-media-controls-time-remaining-display {
+            color: white;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e2e8f0;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #718096;
+            margin-top: 0.25rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: white;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .song-item {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .audio-player {
+                max-width: 100%;
+            }
+
+            .song-title {
+                white-space: normal;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎵 PodSong</h1>
+            <p>A Beautiful Collection of AI-Generated Music</p>
+        </header>
+
+        <div class="player-card">
+            <ul class="song-list">
+                <li class="song-item">
+                    <div class="song-number">1</div>
+                    <div class="song-info">
+                        <div class="song-title">Bayang Kasih</div>
+                        <div class="song-subtitle">AI Generated Music</div>
+                    </div>
+                    <audio class="audio-player" controls>
+                        <source src="Bayang Kasih.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </li>
+
+                <li class="song-item">
+                    <div class="song-number">2</div>
+                    <div class="song-info">
+                        <div class="song-title">Cahaya Dalam Hujan</div>
+                        <div class="song-subtitle">AI Generated Music</div>
+                    </div>
+                    <audio class="audio-player" controls>
+                        <source src="Cahaya Dalam Hujan.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </li>
+
+                <li class="song-item">
+                    <div class="song-number">3</div>
+                    <div class="song-info">
+                        <div class="song-title">Dalam Syurga Cinta Kita Bertemu</div>
+                        <div class="song-subtitle">AI Generated Music</div>
+                    </div>
+                    <audio class="audio-player" controls>
+                        <source src="Dalam Syurga Cinta Kita Bertemu.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </li>
+
+                <li class="song-item">
+                    <div class="song-number">4</div>
+                    <div class="song-info">
+                        <div class="song-title">Heaven Where Our Love Begins</div>
+                        <div class="song-subtitle">AI Generated Music</div>
+                    </div>
+                    <audio class="audio-player" controls>
+                        <source src="Heaven Where Our Love Begins.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </li>
+
+                <li class="song-item">
+                    <div class="song-number">5</div>
+                    <div class="song-info">
+                        <div class="song-title">Mentari Jiwa</div>
+                        <div class="song-subtitle">AI Generated Music</div>
+                    </div>
+                    <audio class="audio-player" controls>
+                        <source src="Mentari Jiwa.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </li>
+
+                <li class="song-item">
+                    <div class="song-number">6</div>
+                    <div class="song-info">
+                        <div class="song-title">Selamanya Ada</div>
+                        <div class="song-subtitle">AI Generated Music</div>
+                    </div>
+                    <audio class="audio-player" controls>
+                        <source src="Selamanya Ada.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </li>
+
+                <li class="song-item">
+                    <div class="song-number">7</div>
+                    <div class="song-info">
+                        <div class="song-title">Syurga Cinta Kita</div>
+                        <div class="song-subtitle">AI Generated Music</div>
+                    </div>
+                    <audio class="audio-player" controls>
+                        <source src="Syurga Cinta Kita.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </li>
+            </ul>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">7</span>
+                    <span class="stat-label">Songs</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">✨</span>
+                    <span class="stat-label">AI Generated</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">🎧</span>
+                    <span class="stat-label">High Quality</span>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2025 PodSong - Enjoy your musical journey</p>
+        </footer>
+    </div>
+</body>
+</html>
